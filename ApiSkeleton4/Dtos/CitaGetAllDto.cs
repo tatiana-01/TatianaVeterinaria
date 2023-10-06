@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace ApiSkeleton4.Dtos;
     public class CitaGetAllDto
     {
+        public int Id { get; set; }
          public int IdMascota { get; set; }
         public DateOnly Fecha { get; set; }
         public TimeOnly Hora { get; set; }

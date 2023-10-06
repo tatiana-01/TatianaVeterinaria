@@ -405,7 +405,7 @@ namespace Persistencia.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     IdCita = table.Column<int>(type: "int", nullable: false),
-                    IdMedicamento = table.Column<int>(type: "int", nullable: false),
+                    IdMedicamento = table.Column<int>(type: "int", nullable: true),
                     Dosis = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     FechaAdministracion = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -425,10 +425,36 @@ namespace Persistencia.Data.Migrations
                         name: "FK_TratamientoMedico_Medicamento_IdMedicamento",
                         column: x => x.IdMedicamento,
                         principalTable: "Medicamento",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Especie",
+                columns: new[] { "Id", "Nombre" },
+                values: new object[,]
+                {
+                    { 1, "Felina" },
+                    { 2, "Canina" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Laboratorio",
+                columns: new[] { "Id", "Direccion", "Nombre", "Telefono" },
+                values: new object[,]
+                {
+                    { 1, "Calle 13 #45-67", "Genfar", "6543789" },
+                    { 2, "Calle 45 #45-67", "Agro", "3107856432" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Propietario",
+                columns: new[] { "Id", "CorreoElectronico", "Nombre", "Telefono" },
+                values: new object[,]
+                {
+                    { 1, "juliana@gmail.com", "Juliana Calderon", "3456789012" },
+                    { 2, "paula@gmail.com", "Paula Porras", "3456789012" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Rol",
@@ -444,12 +470,73 @@ namespace Persistencia.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Usuario",
                 columns: new[] { "Id", "Email", "Password", "Username" },
-                values: new object[] { 1, "admin@gmail.com", "AQAAAAIAAYagAAAAEAoZA5pg3SXxbT+LpOnWki/JJEA6yyJt079UywwMY+ALZIlukhgLljI28olvWIVM1g==", "Admin" });
+                values: new object[] { 1, "admin@gmail.com", "AQAAAAIAAYagAAAAEBcv4Cb2mRKF+b1eVGp/y98/EeyGhbdkvSopjMM15ZsVi+lnrgYfX8vP5XgGtOjCxA==", "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "Veterinario",
+                columns: new[] { "Id", "CorreoElectronico", "Especialidad", "Nombre", "Telefono" },
+                values: new object[,]
+                {
+                    { 1, "juan@gmail.com", "Cirujano Vascular", "Juan Perez", "3452143567" },
+                    { 2, "adriana@gmail.com", "Cirujano Vascular", "Adriana Velasquez", "3452154567" },
+                    { 3, "julian@gmail.com", "General", "Julian Gomez", "3102143567" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Medicamento",
+                columns: new[] { "Id", "CantidadDisponible", "IdLaboratorio", "Nombre", "PrecioVenta" },
+                values: new object[,]
+                {
+                    { 1, 0, 1, "Aciflux", 55000.0 },
+                    { 2, 0, 1, "Doxiciclina", 70000.0 },
+                    { 3, 0, 2, "Meloxicam", 35000.0 },
+                    { 4, 0, 2, "Triple Felina", 80000.0 },
+                    { 5, 0, 2, "Octuple", 80000.0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Raza",
+                columns: new[] { "Id", "IdEspecie", "Nombre" },
+                values: new object[,]
+                {
+                    { 1, 1, "Siamés" },
+                    { 2, 2, "Pastor Aleman" }
+                });
 
             migrationBuilder.InsertData(
                 table: "UsuarioRol",
                 columns: new[] { "RolId", "UsuarioId" },
                 values: new object[] { 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Mascota",
+                columns: new[] { "Id", "FechaNacimiento", "IdEspecie", "IdPropietario", "IdRaza", "Nombre" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2020, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, "Botas" },
+                    { 2, new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, "Bigotes" },
+                    { 3, new DateTime(2019, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 2, 2, "Bruno" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cita",
+                columns: new[] { "Id", "Fecha", "Hora", "IdMascota", "IdVeterinario", "Motivo" },
+                values: new object[,]
+                {
+                    { 1, new DateOnly(2023, 2, 5), new TimeOnly(10, 15, 0), 2, 3, "Vacunacion Triple Felina" },
+                    { 2, new DateOnly(2023, 1, 5), new TimeOnly(15, 15, 0), 1, 3, "Revisión rutinaria" },
+                    { 3, new DateOnly(2023, 6, 5), new TimeOnly(12, 15, 0), 3, 3, "Vacunacion Octuple" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TratamientoMedico",
+                columns: new[] { "Id", "Dosis", "FechaAdministracion", "IdCita", "IdMedicamento", "Observacion" },
+                values: new object[,]
+                {
+                    { 1, "Una dosis de 8ml", new DateTime(2023, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 4, "Recibio bien la vacuna se programa siguiente vacuna para dentro de 6 meses" },
+                    { 2, "No se receto medicamento", new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, "El paciente se encontraba en excelente estado" },
+                    { 3, "Una dosis de 12ml", new DateTime(2023, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 5, "Recibio bien la vacuna se programa siguiente vacuna para dentro de 4 meses" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cita_IdMascota",

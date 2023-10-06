@@ -11,7 +11,7 @@ using Persistencia;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(Skeleton4CapasContext))]
-    [Migration("20231006152252_InitialCreate")]
+    [Migration("20231006172634_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -52,6 +52,35 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("IdVeterinario");
 
                     b.ToTable("Cita", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Fecha = new DateOnly(2023, 2, 5),
+                            Hora = new TimeOnly(10, 15, 0),
+                            IdMascota = 2,
+                            IdVeterinario = 3,
+                            Motivo = "Vacunacion Triple Felina"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Fecha = new DateOnly(2023, 1, 5),
+                            Hora = new TimeOnly(15, 15, 0),
+                            IdMascota = 1,
+                            IdVeterinario = 3,
+                            Motivo = "Revisión rutinaria"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Fecha = new DateOnly(2023, 6, 5),
+                            Hora = new TimeOnly(12, 15, 0),
+                            IdMascota = 3,
+                            IdVeterinario = 3,
+                            Motivo = "Vacunacion Octuple"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.DetalleMovimiento", b =>
@@ -95,6 +124,18 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Especie", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Felina"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Canina"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Laboratorio", b =>
@@ -121,6 +162,22 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Laboratorio", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Direccion = "Calle 13 #45-67",
+                            Nombre = "Genfar",
+                            Telefono = "6543789"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Direccion = "Calle 45 #45-67",
+                            Nombre = "Agro",
+                            Telefono = "3107856432"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Mascota", b =>
@@ -155,6 +212,35 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("IdRaza");
 
                     b.ToTable("Mascota", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FechaNacimiento = new DateTime(2020, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdEspecie = 1,
+                            IdPropietario = 1,
+                            IdRaza = 1,
+                            Nombre = "Botas"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FechaNacimiento = new DateTime(2020, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdEspecie = 1,
+                            IdPropietario = 1,
+                            IdRaza = 1,
+                            Nombre = "Bigotes"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FechaNacimiento = new DateTime(2019, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdEspecie = 2,
+                            IdPropietario = 2,
+                            IdRaza = 2,
+                            Nombre = "Bruno"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Medicamento", b =>
@@ -182,6 +268,48 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("IdLaboratorio");
 
                     b.ToTable("Medicamento", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CantidadDisponible = 0,
+                            IdLaboratorio = 1,
+                            Nombre = "Aciflux",
+                            PrecioVenta = 55000.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CantidadDisponible = 0,
+                            IdLaboratorio = 1,
+                            Nombre = "Doxiciclina",
+                            PrecioVenta = 70000.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CantidadDisponible = 0,
+                            IdLaboratorio = 2,
+                            Nombre = "Meloxicam",
+                            PrecioVenta = 35000.0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CantidadDisponible = 0,
+                            IdLaboratorio = 2,
+                            Nombre = "Triple Felina",
+                            PrecioVenta = 80000.0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CantidadDisponible = 0,
+                            IdLaboratorio = 2,
+                            Nombre = "Octuple",
+                            PrecioVenta = 80000.0
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.MedicamentoProveedor", b =>
@@ -242,6 +370,22 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Propietario", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CorreoElectronico = "juliana@gmail.com",
+                            Nombre = "Juliana Calderon",
+                            Telefono = "3456789012"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CorreoElectronico = "paula@gmail.com",
+                            Nombre = "Paula Porras",
+                            Telefono = "3456789012"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Proveedor", b =>
@@ -289,6 +433,20 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("IdEspecie");
 
                     b.ToTable("Raza", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IdEspecie = 1,
+                            Nombre = "Siamés"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IdEspecie = 2,
+                            Nombre = "Pastor Aleman"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.RefreshToken", b =>
@@ -390,7 +548,7 @@ namespace Persistencia.Data.Migrations
                     b.Property<int>("IdCita")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdMedicamento")
+                    b.Property<int?>("IdMedicamento")
                         .HasColumnType("int");
 
                     b.Property<string>("Observacion")
@@ -405,6 +563,34 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("IdMedicamento");
 
                     b.ToTable("TratamientoMedico", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Dosis = "Una dosis de 8ml",
+                            FechaAdministracion = new DateTime(2023, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdCita = 1,
+                            IdMedicamento = 4,
+                            Observacion = "Recibio bien la vacuna se programa siguiente vacuna para dentro de 6 meses"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Dosis = "No se receto medicamento",
+                            FechaAdministracion = new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdCita = 2,
+                            Observacion = "El paciente se encontraba en excelente estado"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Dosis = "Una dosis de 12ml",
+                            FechaAdministracion = new DateTime(2023, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdCita = 3,
+                            IdMedicamento = 5,
+                            Observacion = "Recibio bien la vacuna se programa siguiente vacuna para dentro de 4 meses"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Usuario", b =>
@@ -436,7 +622,7 @@ namespace Persistencia.Data.Migrations
                         {
                             Id = 1,
                             Email = "admin@gmail.com",
-                            Password = "AQAAAAIAAYagAAAAEAoZA5pg3SXxbT+LpOnWki/JJEA6yyJt079UywwMY+ALZIlukhgLljI28olvWIVM1g==",
+                            Password = "AQAAAAIAAYagAAAAEBcv4Cb2mRKF+b1eVGp/y98/EeyGhbdkvSopjMM15ZsVi+lnrgYfX8vP5XgGtOjCxA==",
                             Username = "Admin"
                         });
                 });
@@ -492,6 +678,32 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Veterinario", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CorreoElectronico = "juan@gmail.com",
+                            Especialidad = "Cirujano Vascular",
+                            Nombre = "Juan Perez",
+                            Telefono = "3452143567"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CorreoElectronico = "adriana@gmail.com",
+                            Especialidad = "Cirujano Vascular",
+                            Nombre = "Adriana Velasquez",
+                            Telefono = "3452154567"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CorreoElectronico = "julian@gmail.com",
+                            Especialidad = "General",
+                            Nombre = "Julian Gomez",
+                            Telefono = "3102143567"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Cita", b =>
@@ -632,9 +844,7 @@ namespace Persistencia.Data.Migrations
 
                     b.HasOne("Dominio.Entities.Medicamento", "Medicamento")
                         .WithMany("TratamientoMedicos")
-                        .HasForeignKey("IdMedicamento")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdMedicamento");
 
                     b.Navigation("Cita");
 

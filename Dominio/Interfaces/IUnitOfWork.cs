@@ -23,5 +23,6 @@ namespace Dominio.Interfaces;
         ITipoMovimiento TipoMovimientos {get;}
         ITratamientoMedico TratamientoMedicos {get;}
         IVeterinario Veterinarios {get;}
+        IConsulta Consultas {get;}
         Task<int> SaveAsync();
     }

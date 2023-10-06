@@ -232,6 +232,20 @@ public class UnitOfWork : IUnitOfWork, IDisposable
             return _veterinarios;
         }
     }
+
+    private ConsultaRepository _consultas;
+    public IConsulta Consultas
+    {
+        get
+        {
+            if (_consultas == null)
+            {
+                _consultas = new ConsultaRepository(_context);
+            }
+            return _consultas;
+        }
+    }
+
     public async Task<int> SaveAsync()
     {
         return await _context.SaveChangesAsync();

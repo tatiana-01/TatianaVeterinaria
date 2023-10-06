@@ -10,5 +10,5 @@ namespace ApiSkeleton4.Dtos;
         public string Nombre { get; set; }
         public string CorreoElectronico { get; set; }
         public string Telefono { get; set; }
-        public ICollection<MascotaGetAllDto> Mascotas { get; set; }
+        public ICollection<MascotaDto> Mascotas { get; set; }
     }
