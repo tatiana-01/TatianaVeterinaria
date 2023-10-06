@@ -11,7 +11,7 @@ using Persistencia;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(Skeleton4CapasContext))]
-    [Migration("20231006133256_InitialCreate")]
+    [Migration("20231006152252_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -436,7 +436,7 @@ namespace Persistencia.Data.Migrations
                         {
                             Id = 1,
                             Email = "admin@gmail.com",
-                            Password = "AQAAAAIAAYagAAAAEKQX6cK0Zk9wpDox1NZfgLoy+1Vhz5a6CCPnUjmEiQuc4ciJp0vhtrZgNnF/dOaoNw==",
+                            Password = "AQAAAAIAAYagAAAAEAoZA5pg3SXxbT+LpOnWki/JJEA6yyJt079UywwMY+ALZIlukhgLljI28olvWIVM1g==",
                             Username = "Admin"
                         });
                 });

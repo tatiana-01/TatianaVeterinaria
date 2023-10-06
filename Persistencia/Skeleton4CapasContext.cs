@@ -24,6 +24,7 @@ public class Skeleton4CapasContext : DbContext
     public DbSet<Especie> Especies { get; set; }
     public DbSet<Laboratorio> Laboratorios { get; set; }
     public DbSet<Medicamento> Medicamentos { get; set; }
+    public DbSet<Mascota> Mascotas { get; set; }
     public DbSet<MedicamentoProveedor> MedicamentoProveedores { get; set; }
     public DbSet<Propietario> Propietarios { get; set; }
     public DbSet<Proveedor> Proveedores { get; set; }

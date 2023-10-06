@@ -444,7 +444,7 @@ namespace Persistencia.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Usuario",
                 columns: new[] { "Id", "Email", "Password", "Username" },
-                values: new object[] { 1, "admin@gmail.com", "AQAAAAIAAYagAAAAEKQX6cK0Zk9wpDox1NZfgLoy+1Vhz5a6CCPnUjmEiQuc4ciJp0vhtrZgNnF/dOaoNw==", "Admin" });
+                values: new object[] { 1, "admin@gmail.com", "AQAAAAIAAYagAAAAEAoZA5pg3SXxbT+LpOnWki/JJEA6yyJt079UywwMY+ALZIlukhgLljI28olvWIVM1g==", "Admin" });
 
             migrationBuilder.InsertData(
                 table: "UsuarioRol",
