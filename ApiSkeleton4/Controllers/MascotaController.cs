@@ -26,8 +26,8 @@ public class MascotaController : BaseApiController
     }
 
     [HttpGet]
-    [Authorize]
-    [MapToApiVersion("1.1")]
+    //[Authorize]
+    //[MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -40,8 +40,8 @@ public class MascotaController : BaseApiController
     }
 
     [HttpGet("{id}")]
-    [Authorize]
-    [MapToApiVersion("1.1")]
+    //[Authorize]
+    //[MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -56,7 +56,7 @@ public class MascotaController : BaseApiController
     }
 
     [HttpPost]
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -73,7 +73,7 @@ public class MascotaController : BaseApiController
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -91,7 +91,7 @@ public class MascotaController : BaseApiController
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

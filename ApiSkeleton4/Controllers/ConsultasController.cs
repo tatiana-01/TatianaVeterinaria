@@ -96,8 +96,8 @@ public class ConsultasController : BaseApiController
     }
 
     [HttpGet("mascotasVacunaTrimestre")]
-    //[Authorize]
-    //[MapToApiVersion("1.1")]
+    [Authorize(Roles = "Administrador")]
+    [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -8,5 +8,5 @@ namespace ApiSkeleton4.Dtos;
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public ICollection<MovimientoMedicamentoGetAllDto> MovimientoMedicamentos { get; set; }
+        public ICollection<MovimientoMedicamentoDto> MovimientoMedicamentos { get; set; }
     }

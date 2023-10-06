@@ -13,8 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace ApiSkeleton4.Controllers;
-[ApiVersion("1.0")] 
-[ApiVersion("1.1")] 
+//[ApiVersion("1.0")] 
+//[ApiVersion("1.1")] 
 public class TratamientoMedicoController : BaseApiController
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -26,8 +26,8 @@ public class TratamientoMedicoController : BaseApiController
     }
 
     [HttpGet]
-    [Authorize]
-    [MapToApiVersion("1.1")]
+    //[Authorize]
+    //[MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -40,8 +40,8 @@ public class TratamientoMedicoController : BaseApiController
     }
 
     [HttpGet("{id}")]
-    [Authorize]
-    [MapToApiVersion("1.1")]
+    //[Authorize]
+    //[MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -56,7 +56,7 @@ public class TratamientoMedicoController : BaseApiController
     }
 
     [HttpPost]
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -73,7 +73,7 @@ public class TratamientoMedicoController : BaseApiController
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -91,7 +91,7 @@ public class TratamientoMedicoController : BaseApiController
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

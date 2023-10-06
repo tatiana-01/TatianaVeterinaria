@@ -96,7 +96,7 @@ public class UsuarioController : BaseApiController
  */
 
     [HttpGet("{id}")]
-    [MapToApiVersion("1.1")]
+    //[MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -125,7 +125,7 @@ public class UsuarioController : BaseApiController
     }
 
     [HttpGet]
-    [MapToApiVersion("1.1")]
+    //[MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -28,8 +28,8 @@ public class MedicamentoProveedorController : BaseApiController
 
 
     [HttpGet]
-    [Authorize]
-    [MapToApiVersion("1.1")]
+    //[Authorize]
+    //[MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -44,7 +44,7 @@ public class MedicamentoProveedorController : BaseApiController
     }
 
     [HttpGet("{idMedicamento}/{idProveedor}")]
-    //[Authorize]
+    ////[Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -61,7 +61,7 @@ public class MedicamentoProveedorController : BaseApiController
     }
 
     [HttpPost]
-    //[Authorize(Roles = "Administrador")]
+    ////[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -80,7 +80,7 @@ public class MedicamentoProveedorController : BaseApiController
     }
 
     [HttpPut("{idMedicamento}/{idProveedor}")]
-    //[Authorize(Roles = "Administrador")]
+    ////[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -101,7 +101,7 @@ public class MedicamentoProveedorController : BaseApiController
     }
 
     [HttpDelete("{idMedicamento}/{idProveedor}")]
-    //[Authorize(Roles = "Administrador")]
+    ////[Authorize(Roles = "Administrador")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dominio.Entities;
 
 namespace ApiSkeleton4.Dtos;
 public class MascotaGetAllDto
@@ -12,5 +13,5 @@ public class MascotaGetAllDto
     public int IdRaza { get; set; }
     public string Nombre { get; set; }
     public DateTime FechaNacimiento { get; set; }
-    public ICollection<CitaGetAllDto> Citas { get; set; }
+    public ICollection<CitaDto> Citas { get; set; }
 }

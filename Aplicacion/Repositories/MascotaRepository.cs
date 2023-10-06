@@ -26,7 +26,7 @@ public class MascotaRepository : GenericRepository<Mascota>, IMascota
         }
          var totalRegistros=await query.CountAsync();
         var registros = await query
-                                .Include(p=>p.Citas)
+                                .Include(p=>p.Citas).ThenInclude(p=>p.TratamientoMedicos)
                                 .Skip((pageIndex-1)*pageSize)
                                 .Take(pageSize)
                                 .ToListAsync();
