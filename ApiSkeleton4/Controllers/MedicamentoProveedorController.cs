@@ -28,8 +28,8 @@ public class MedicamentoProveedorController : BaseApiController
 
 
     [HttpGet]
-    //[Authorize]
-    //[MapToApiVersion("1.1")]
+    [Authorize]
+    [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

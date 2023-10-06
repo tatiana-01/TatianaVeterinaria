@@ -26,7 +26,7 @@ public class EspecieController : BaseApiController
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
     [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -41,7 +41,7 @@ public class EspecieController : BaseApiController
 
     [HttpGet("{id}")]
     //[Authorize]
-    [MapToApiVersion("1.1")]
+    //[MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
