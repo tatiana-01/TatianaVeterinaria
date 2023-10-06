@@ -56,6 +56,28 @@ Este endpoint de vacunas tambien tiene versionado por favor asegurese de inserta
 - El token esta configurado con vencimiento de 1 minuto, puede hacer uso del refresh token para obtener uno nuevo, para esto debe usar el endpoint tipo POST: 
 
          http://localhost:5291/api/usuario/refresh-token
+
+- Todos los endpoints de paginación tienen autorizancion y versionado para usarlos correctamente debe seguir estos pasos
+
+    1. Debe usar el endpoint de token tipo POST:
+
+            http://localhost:5291/api/usuario/token
+        
+    con el body:
+    ```
+    {
+    "username":"Admin",
+    "password":"123456"
+    }
+    ```
+    este le devolvera el token.
+
+    2. Ingrese a un endpoint de paginación tipo GET por ejemplo:
+
+            http://localhost:5291/api/usuario/mascota
+
+    3. Copie el token que le devolvio el primer endpoint y coloquelo en el campo de autorizacion.
+    4. En los headers ingrese el dato:  x-version 1.1
 ## Seeding
 
 El proyetco cuenta con una semilla con información acerca de usuario, rol, veterinarios, medicamentos, mascotas, especie, raza, propietario, cita y tratamiento medico.
