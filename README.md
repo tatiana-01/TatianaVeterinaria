@@ -55,13 +55,13 @@ Este endpoint de vacunas tambien tiene versionado por favor asegurese de inserta
 - El proyecto tiene implementado el rate limit permite 10 peticiones cada 10 segundos.
 - El token esta configurado con vencimiento de 1 minuto, puede hacer uso del refresh token para obtener uno nuevo, para esto debe usar el endpoint tipo POST: 
 
-         http://localhost:5291/api/usuario/refresh-token
+    http://localhost:5291/api/usuario/refresh-token
 
 - Todos los endpoints de paginación tienen autorizancion y versionado para usarlos correctamente debe seguir estos pasos
 
     1. Debe usar el endpoint de token tipo POST:
 
-            http://localhost:5291/api/usuario/token
+     http://localhost:5291/api/usuario/token
         
     con el body:
     ```
@@ -74,7 +74,7 @@ Este endpoint de vacunas tambien tiene versionado por favor asegurese de inserta
 
     2. Ingrese a un endpoint de paginación tipo GET por ejemplo:
 
-            http://localhost:5291/api/mascota
+    http://localhost:5291/api/mascota
 
     3. Copie el token que le devolvio el primer endpoint y coloquelo en el campo de autorizacion.
     4. En los headers ingrese el dato:  x-version 1.1
