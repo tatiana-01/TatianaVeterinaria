@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistencia.Data.Configuracion;
-    public class RolConfiguracion : IEntityTypeConfiguration<Rol>
+    public class RolConfiguration : IEntityTypeConfiguration<Rol>
     {
         public void Configure(EntityTypeBuilder<Rol> builder)
         {
