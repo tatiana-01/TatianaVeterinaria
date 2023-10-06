@@ -74,7 +74,7 @@ Este endpoint de vacunas tambien tiene versionado por favor asegurese de inserta
 
     2. Ingrese a un endpoint de paginación tipo GET por ejemplo:
 
-            http://localhost:5291/api/usuario/mascota
+            http://localhost:5291/api/mascota
 
     3. Copie el token que le devolvio el primer endpoint y coloquelo en el campo de autorizacion.
     4. En los headers ingrese el dato:  x-version 1.1
